@@ -1,7 +1,15 @@
 name: social_story_share_plus
-description: "A new Flutter plugin project."
+description: "A Flutter plugin to share images and stickers directly to Instagram Stories, Instagram Direct, Facebook Stories, WhatsApp Status, and save media to the device gallery."
 version: 0.0.1
-homepage:
+repository: https://github.com/DennisJohnsonDev/social_story_share_plus
+issue_tracker: https://github.com/DennisJohnsonDev/social_story_share_plus/issues
+
+topics:
+  - share
+  - instagram
+  - facebook
+  - whatsapp
+  - stories
 
 environment:
   sdk: ^3.10.7
