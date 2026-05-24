@@ -1,25 +1,26 @@
-// This is a basic Flutter integration test.
+// Basic integration test for social_story_share_plus.
 //
-// Since integration tests run in a full Flutter application, they can interact
-// with the host side of a plugin implementation, unlike Dart unit tests.
+// Run from the example/ directory:
+//   flutter test integration_test
 //
-// For more information about Flutter integration tests, please see
+// For more on Flutter integration tests, see:
 // https://flutter.dev/to/integration-testing
-
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
-
 import 'package:social_story_share_plus/social_story_share_plus.dart';
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-  testWidgets('getPlatformVersion test', (WidgetTester tester) async {
-    final SocialStorySharePlus plugin = SocialStorySharePlus();
-    final String? version = await plugin.getPlatformVersion();
-    // The version string depends on the host platform running the test, so
-    // just assert that some non-empty string is returned.
-    expect(version?.isNotEmpty, true);
+  testWidgets('isInstalled checks return a bool from the host', (tester) async {
+    // The actual value depends on whether the apps are installed on the host
+    // device or simulator. We just verify the channel round-trips a bool.
+    final ig = await SocialStorySharePlus.isInstagramInstalled();
+    final fb = await SocialStorySharePlus.isFacebookInstalled();
+    final wa = await SocialStorySharePlus.isWhatsAppInstalled();
+    expect(ig, isA<bool>());
+    expect(fb, isA<bool>());
+    expect(wa, isA<bool>());
   });
 }

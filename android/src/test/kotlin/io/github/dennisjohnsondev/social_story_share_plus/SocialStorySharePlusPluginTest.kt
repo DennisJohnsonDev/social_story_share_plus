@@ -6,22 +6,20 @@ import org.mockito.Mockito
 import kotlin.test.Test
 
 /*
- * This demonstrates a simple unit test of the Kotlin portion of this plugin's implementation.
- *
- * Once you have built the plugin's example app, you can run these tests from the command
- * line by running `./gradlew testDebugUnitTest` in the `example/android/` directory, or
- * you can run them directly from IDEs that support JUnit such as Android Studio.
+ * Once you have built the plugin's example app, you can run these tests from the
+ * command line by running `./gradlew testDebugUnitTest` in the `example/android/`
+ * directory, or from IDEs that support JUnit such as Android Studio.
  */
-
 internal class SocialStorySharePlusPluginTest {
-    @Test
-    fun onMethodCall_getPlatformVersion_returnsExpectedValue() {
-        val plugin = SocialStorySharePlusPlugin()
 
-        val call = MethodCall("getPlatformVersion", null)
+    @Test
+    fun onMethodCall_unknownMethod_returnsNotImplemented() {
+        val plugin = SocialStorySharePlusPlugin()
+        val call = MethodCall("doesNotExist", null)
         val mockResult: MethodChannel.Result = Mockito.mock(MethodChannel.Result::class.java)
+
         plugin.onMethodCall(call, mockResult)
 
-        Mockito.verify(mockResult).success("Android " + android.os.Build.VERSION.RELEASE)
+        Mockito.verify(mockResult).notImplemented()
     }
 }
