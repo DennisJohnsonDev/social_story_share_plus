@@ -1,0 +1,32 @@
+name: social_story_share_plus
+description: "Share images to Instagram Stories, Facebook Stories and WhatsApp Status, send text to Instagram Direct and save images to the gallery."
+version: 0.1.0
+topics:
+  - share
+  - instagram
+  - whatsapp
+  - facebook
+  - stories
+
+environment:
+  sdk: ^3.6.0
+  flutter: '>=3.27.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  plugin_platform_interface: ^2.1.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: dev.dennisjohnson.social_story_share_plus
+        pluginClass: SocialStorySharePlusPlugin
+      ios:
+        pluginClass: SocialStorySharePlusPlugin

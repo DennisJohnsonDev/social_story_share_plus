@@ -1,0 +1,25 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="dev.dennisjohnson.social_story_share_plus">
+
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+
+    <queries>
+        <package android:name="com.instagram.android" />
+        <package android:name="com.facebook.katana" />
+        <package android:name="com.whatsapp" />
+    </queries>
+
+    <application>
+        <provider
+            android:name="dev.dennisjohnson.social_story_share_plus.SocialStoryShareFileProvider"
+            android:authorities="${applicationId}.social_story_share_plus.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/social_story_share_plus_paths" />
+        </provider>
+    </application>
+</manifest>
