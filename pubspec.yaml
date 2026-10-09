@@ -1,6 +1,7 @@
 name: social_story_share_plus
 description: "Share images to Instagram Stories, Facebook Stories and WhatsApp Status, send text to Instagram Direct and save images to the gallery."
 version: 0.1.0
+repository: https://github.com/DennisJohnsonDev/social_story_share_plus
 topics:
   - share
   - instagram
